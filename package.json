@@ -5,8 +5,9 @@
     "description": "A clean, beautiful and responsive portfolio template for Developers!",
     "scripts": {
         "start": "parcel src/index.html",
-        "build": "parcel build src/index.html"
-    },
+        "build": "parcel build src/index.html",
+        "clean": "parcel clean" 
+      },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/cobiwave/simplefolio"
