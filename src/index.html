@@ -57,6 +57,19 @@
         </p>
       </div>
     </section>
+
+
+
+
+  <!-- Aquí puedes agregar otras secciones y contenido -->
+
+  <!-- Script de Swiper -->
+  
+  
+
+
+
+    
     <!-- /END Hero Section -->
 
     <!-- **** About Section **** -->
@@ -135,15 +148,16 @@ Debajo de la imagen, encontrarás un video que presenta nuestra empresa, nuestra
                   rel="noreferrer"
                   target="_blank"
                   class="cta-btn text-color-main"
-                  href="https://www.tiktok.com/@truck.vw/video/7399489106751032582?is_from_webapp=1&sender_device=pc"
+                  href="https://youtu.be/-iuyc4jwsw8"
                 >
-                  Ver Video
+                  Nueva Amarok
                 </a> 
+                
               </div>
             </div>
             <div class="col-lg-8 col-sm-12">
               <div class="project-wrapper__image load-hidden">
-                <a rel="noreferrer" href="https://www.tiktok.com/@truck.vw/video/7399489106751032582?is_from_webapp=1&sender_device=pc" target="_blank">
+                <a rel="noreferrer" href="https://www.facebook.com/watch/?v=651594775429450">
                   <div
                     data-tilt
                     data-tilt-max="4"
@@ -154,7 +168,7 @@ Debajo de la imagen, encontrarás un video que presenta nuestra empresa, nuestra
                     <img
                       alt="Project Image"
                       class="img-fluid"
-                      src="assets/imagen-pf.jpeg"
+                      src="assets/imagen-pf.png"
                     />
                   </div>
                 </a>
@@ -273,19 +287,48 @@ Debajo de la imagen, encontrarás un video que presenta nuestra empresa, nuestra
     <!-- **** Contact Section **** -->
     <section id="contact">
       <div class="container">
-        <h2 class="section-title">Contacto</h2>
+        <h2 class="section-title">Consultas</h2>
         <div class="contact-wrapper load-hidden">
-          <!-- <p class="contact-wrapper__text">[Put your call to action here]</p> -->
-          <a
-            rel="noreferrer"
-            target="_blank"
-            class="cta-btn cta-btn--resume"
-            href="mailto:rafagomezautohouse@gmail.com"
-            >Enviar email/a
-          >
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="nombre">Nombre:</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido:</label>
+              <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono:</label>
+              <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+              <label for="consulta">Consulta:</label>
+              <textarea id="consulta" name="consulta" rows="4" required></textarea>
+            </div>
+            <button type="button" class="cta-btn cta-btn--resume" onclick="sendWhatsAppMessage()">Enviar</button>
+          </form>
         </div>
       </div>
     </section>
+    
+    <script>
+      function sendWhatsAppMessage() {
+        const nombre = encodeURIComponent(document.getElementById('nombre').value);
+        const apellido = encodeURIComponent(document.getElementById('apellido').value);
+        const telefono = encodeURIComponent(document.getElementById('telefono').value);
+        const consulta = encodeURIComponent(document.getElementById('consulta').value);
+      
+        const message = `Nombre: ${nombre}%0AApellido: ${apellido}%0ATeléfono: ${telefono}%0AConsulta: ${consulta}`;
+        const phoneNumber = '+543513002500'; // Reemplaza con tu número de WhatsApp en formato internacional
+        const url = `https://wa.me/${phoneNumber}?text=${message}`;
+      
+        window.open(url, '_blank');
+      }
+      </script>
+      
+    
+    
     <!-- /END Contact Section -->
 
     <!-- **** Footer Section **** -->
