@@ -156,18 +156,34 @@
     
     <script>
       function sendWhatsAppMessage() {
-        const nombre = encodeURIComponent(document.getElementById('nombre').value);
-        const apellido = encodeURIComponent(document.getElementById('apellido').value);
-        const telefono = encodeURIComponent(document.getElementById('telefono').value);
-        const consulta = encodeURIComponent(document.getElementById('consulta').value);
+        const nombre = document.getElementById('nombre').value.trim();
+        const apellido = document.getElementById('apellido').value.trim();
+        const telefono = document.getElementById('telefono').value.trim();
+        const consulta = document.getElementById('consulta').value.trim();
+      
+        // Validación básica
+        if(!nombre || !consulta) {
+          alert("Por favor complete nombre y consulta");
+          return;
+        }
       
         const message = `Nombre: ${nombre}%0AApellido: ${apellido}%0ATeléfono: ${telefono}%0AConsulta: ${consulta}`;
-        const phoneNumber = '+543517509458';
+        const phoneNumber = '543517509458'; // Nota: sin el signo +
         const url = `https://wa.me/${phoneNumber}?text=${message}`;
       
-        window.open(url, '_blank');
+        // Abre WhatsApp (alternativa más compatible)
+        window.location.href = url;
       }
-    </script>
+      </script>
+      <form>
+        <input type="text" id="nombre" placeholder="Nombre" required>
+        <input type="text" id="apellido" placeholder="Apellido">
+        <input type="tel" id="telefono" placeholder="Teléfono">
+        <textarea id="consulta" placeholder="Consulta" required></textarea>
+        
+        <!-- Botón que ejecuta la función -->
+        <button type="button" onclick="sendWhatsAppMessage()">Enviar por WhatsApp</button>
+      </form>
     
     <!-- **** Footer Section **** -->
     <footer class="footer navbar-static-bottom">
